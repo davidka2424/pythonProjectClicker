@@ -12,5 +12,5 @@ def call_click(request):
 
     return Response({'core': CoreSerializer(
         core).data})
-
+    # return render(request, 'index.html', {'core':core})
 # Create your views here.

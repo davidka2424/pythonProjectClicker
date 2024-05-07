@@ -10,3 +10,4 @@ function call_click() {
         document.getElementById('coins').innerText = data.core.coins
     }).catch(error => console.log(error))
 }
+}
