@@ -1,32 +1,32 @@
-header{
-    background-color: darkcyan;
+header {
+    background-color: #2D3A4F; /* Темно-синий цвет */
     color: white;
     height: 100px;
 }
 
-h3{
+h3 {
     text-align: center;
     vertical-align: middle;
     padding-top: 20px;
 }
 
-main{
+main {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.logout{
+.logout {
     position: relative;
-    text-align:center;
+    text-align: center;
     color: white;
 }
 
 .logout a {
-    color: rgb(209, 209, 209);
+    color: #8398B8; /* Светло-серый-синий цвет */
     font-size: larger;
 }
 
-.logout a:hover{
+.logout a:hover {
     color: white;
     text-decoration: none;
 }

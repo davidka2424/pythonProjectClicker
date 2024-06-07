@@ -25,14 +25,16 @@ SECRET_KEY = 'django-insecure-=4a_=#a$hdkgw#-qntid=g1rb&%#h!tp6z@u4(g^y7fu0(#=y1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost","0.0.0.0"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'api',
+    'frontend',
     'backend',
-    'auth_clicker',
+    # 'auth_clicker',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,7 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/' #static/
+STATIC_URL = 'frontend/static/' #static/
 STATICFILES_DIRS = [
     BASE_DIR / "frontend/static",
 # os.path.join(BASE_DIR, 'static')

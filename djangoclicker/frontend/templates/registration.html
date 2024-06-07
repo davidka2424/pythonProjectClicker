@@ -1,31 +1,22 @@
-
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <title>Title </title>
-  </head>
-  <body>
-    <div class="header">
-      <h3 class="site-name">REGISTRATION</h3>
 
-      </div>
-    <main>
-    <div align="center">
-      <form method="post" action="{% url 'registration' %}">
-        {%csrf_token%}
-        {{form.as_p}}
-        <input type="submit" value="SIGN UP">
+<html lang="en">
+<head>
+    <title>Регистрация в лучшем кликере</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div class="centered">
+        <h1>Регистрация</h1>
+        {% if form.errors %}
+            <p>{{form.errors}}</p>
+        {% endif %}
+        <form action="{% url 'register' %}" method='POST'>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit">
         </form>
-        {% if invalid%}
-       <p>This username is already taken! Please choose another oneq12e312312!</p>
-       {% endif %}
+        <a href="{% url 'login' %}">Зарегистрирован?</a>
     </div>
-    <br>
-    <div align="center">Or you can <a href="/login">sign in</a></div>
-  </main>
-  </body>
+</body>
 </html>

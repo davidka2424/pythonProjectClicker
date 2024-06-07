@@ -1,10 +1,14 @@
+
 from django.contrib import admin
-from django.urls import path, include
-from backend import views
-# from auth_clicker import views
+from django.shortcuts import redirect
+from django.urls import path, include, reverse_lazy, re_path
+from django.views.generic import RedirectView
 
 urlpatterns = [
+    path('', include('backend.urls')),
     path('admin/', admin.site.urls),
-    path('call_click/', views.call_click, name='call_click'),
-    path('', include('auth_clicker.urls'))
+    path("backend/", include("backend.urls")),
+    path('api/', include("api.urls")),
+    path('frontend/', include("frontend.urls")),
+    re_path(r'^$', RedirectView.as_view(url=reverse_lazy('index'), permanent=False)),
 ]

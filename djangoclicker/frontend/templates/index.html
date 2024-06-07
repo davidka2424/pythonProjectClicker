@@ -1,37 +1,75 @@
-<!--{% load static %}-->
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" dir="ltr">-->
-<!--  <head>-->
-<!--    <link rel="stylesheet" href="{% static 'css/style.css' %}">-->
-<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-<!--    <meta charset="utf-8">-->
-<!--    <title>Title </title>-->
-<!--  </head>-->
-<!--  <body>-->
-<!--      <header><h3> Welcome, {{user.username}}! </h3>-->
-<!--      <div class="logout"><a href="/logout">LOGOUT</a></div>-->
-<!--      </header>-->
-<!--     <main>-->
-
-
-<!--    </main>-->
-
-<!--  </body>-->
-<!--</html>-->
-
-
 {% load static %}
 
 <html lang="en">
 <head>
-    <title>Лучший кликер на планете</title>
+    <title>Tyan Clicker - just touch it</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 </head>
 <body>
-    <main>
-        <div id='coins'>{{core.coins}}</div>
-        <button onclick="call_click()">Нажми на меня</button>
+    <main class="app">
+
+        <div class="container">
+
+            <div class="header">
+                <nav class="nav">
+                    <div id="core_name">Привет, {{ user.username }}</div>
+                    <div class="break"></div>
+
+                    <div id="core_level"><span class="underlined">Уровень:</span> <span class="indicator">{{ core.level }}</span></div>
+
+                    <div id="core_logout">
+                        <a href="{% url 'logout' %}">Выйти</a>
+                    </div>
+                </nav>
+
+                <div id="info">
+                    <p>
+                        <span class="underlined">
+                    Невероятная мощь клика:
+                            </span>
+                        <span id="click_power" class="indicator">{{ core.click_power }}</span>
+                    </p>
+                    <p>
+                        <span class="underlined">
+                        Самостоятельная дружина кликеров:
+                        </span>
+                        <span id="auto_click_power" class="indicator">{{ core.auto_click_power }}</span>
+                    </p>
+                    <p>
+                        <div id='coins'>
+                            <span class="underlined">Коины:</span>
+                            <span class="indicator indicator-orange">{{core.coins}}</span>
+                        </div>
+                    </p>
+                </div>
+            </div>
+
+            <div id="gamearea">
+                <div id="notif">
+                     Добро пожаловать!
+                </div>
+
+                <button id="kakashi" onclick="call_click()">
+                    <img src="../static/resources/tyan.png">
+                </button>
+            </div>
+
+            <aside class="boosts" id="boosts">
+                <h3>Бусты</h3>
+                <div class="boosts-holder" id="boosts-holder">
+                    {% for boost in boosts %}
+                        <button class="boost_{{ boost.type }} boost_btn" id="boost_{{boost.id}}" onclick="buy_boost({{boost.id}})">
+                            <p>lvl: <span id="boost_level">{{boost.level}}</span></p>
+                            <p>+<span id="boost_power">{{boost.power}}</span></p>
+                            <p><span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endfor %}
+                </div>
+            </aside>
+
+        </div>
+
     </main>
 </body>
 </html>
