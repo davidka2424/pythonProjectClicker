@@ -7,6 +7,7 @@ from django.db import models
 from .constants import *
 
 
+
 # Create your models here.
 class Core(models.Model):
     auto_click_power = models.IntegerField(default=0)
