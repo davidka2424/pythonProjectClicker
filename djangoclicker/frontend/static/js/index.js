@@ -45,7 +45,7 @@ function GameSession() {
 
 let Game = new GameSession() // Экземпляр класса GameSession.
 
-/** Функция обработки клика пользователя на какаши. */
+/** Функция обработки клика пользователя на монетку. */
 function call_click() {
     const kakashiNode = document.getElementById('kakashi')
     click_animation(kakashiNode, 50)
@@ -205,12 +205,7 @@ function setAutoSave() {
     }, 10000)
 }
 
-/**
-    Функция для получения кукесов.
-    Она нужна для того, чтобы получить токен пользователя, который хранится в cookie.
-    Токен пользователя, в свою очередь, нужен для того, чтобы система распознала, что запросы защищены.
-    Без него POST и PUT запросы выполняться не будут, потому что так захотел Django.
-*/
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
